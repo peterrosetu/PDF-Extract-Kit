@@ -78,6 +78,8 @@ By annotating a variety of PDF documents, we have trained robust models for `lay
 
 Existing open-source models are often trained on data from Arxiv papers and fall short when facing diverse PDF documents. In contrast, our models, trained on diverse data, are capable of adapting to various document types for extraction.
 
+The introduction of Validation process can be seen [here](./assets/validation/README.md).
+
 <span id="layout-anchor"></span>
 ### Layout Detection
 
@@ -179,7 +181,7 @@ We have compared our model with the open-source formula detection model [Pix2Tex
 
 ### Formula Recognition
 
-The formula recognition we used is based on the weights downloaded from [Unimernet](https://github.com/opendatalab/UniMERNet), without any further SFT training, and the accuracy validation results can be obtained on its GitHub page.
+The formula recognition we used is based on the weights downloaded from [UniMERNet](https://github.com/opendatalab/UniMERNet), without any further SFT training, and the accuracy validation results can be obtained on its GitHub page.
 
 ## Installation Guide
 
