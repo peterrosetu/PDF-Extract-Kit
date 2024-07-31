@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="assets/images/pdf-extract-kit_logo.png" width="180px" style="vertical-align:middle;">
+  <img src="assets/images/pdf-extract-kit_logo.png" width="220px" style="vertical-align:middle;">
 </p>
 
 
@@ -295,6 +295,13 @@ python pdf_extract.py --pdf data/pdfs/ocr_1.pdf
       eprint={2404.15254},
       archivePrefix={arXiv},
       primaryClass={cs.CV}
+}
+
+@article{he2024opendatalab,
+  title={Opendatalab: Empowering general artificial intelligence with open datasets},
+  author={He, Conghui and Li, Wei and Jin, Zhenjiang and Xu, Chao and Wang, Bin and Lin, Dahua},
+  journal={arXiv preprint arXiv:2407.13773},
+  year={2024}
 }
 ```
 
