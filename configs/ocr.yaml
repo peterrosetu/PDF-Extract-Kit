@@ -1,0 +1,10 @@
+inputs: assets/demo/ocr
+outputs: outputs/ocr
+visualize: True
+tasks:
+  ocr:
+    model: ocr_ppocr
+    model_config:
+      lang: ch
+      show_log: True
+      det_db_box_thresh: 0.3
