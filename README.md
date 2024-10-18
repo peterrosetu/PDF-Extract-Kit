@@ -41,7 +41,7 @@ English | [简体中文](./README_zh-CN.md)
 
 | **Task Type**     | **Description**                                                                 | **Models**                    |
 |-------------------|---------------------------------------------------------------------------------|-------------------------------|
-| **Layout Detection** | Locate different elements in a document: including images, tables, text, titles, formulas | `YOLOv10_ft`, `LayoutLMv3_ft` | 
+| **Layout Detection** | Locate different elements in a document: including images, tables, text, titles, formulas | `DocLayout-YOLO_ft`, `YOLO-v10_ft`, `LayoutLMv3_ft` | 
 | **Formula Detection** | Locate formulas in documents: including inline and block formulas            | `YOLOv8_ft`                   |  
 | **Formula Recognition** | Recognize formula images into LaTeX source code                             | `UniMERNet`                   |  
 | **OCR**           | Extract text content from images (including location and recognition)            | `PaddleOCR`                   | 
@@ -49,6 +49,7 @@ English | [简体中文](./README_zh-CN.md)
 | **Reading Order** | Sort and concatenate discrete text paragraphs                                    | Coming Soon!                  | 
 
 ## News and Updates
+- `2024.10.17` 🎉🎉🎉 We are excited to announce that the more accurate and faster layout detection model, [DocLayout-YOLO](https://github.com/opendatalab/DocLayout-YOLO), has been officially integrated into `PDF-Extract-Kit 1.0`. Please refer to the [layout detection algorithm documentation](https://pdf-extract-kit.readthedocs.io/en/latest/algorithm/layout_detection.html) for usage instructions!
 - `2024.10.10` 🎉🎉🎉 The official release of `PDF-Extract-Kit 1.0`, rebuilt with modularity for more convenient and flexible model usage! Please switch to the [release/0.1.1](https://github.com/opendatalab/PDF-Extract-Kit/tree/release/0.1.1) branch for the old version.
 - `2024.08.01` 🎉🎉🎉 Added the [StructEqTable](demo/TabRec/StructEqTable/README_TABLE.md) module for table content extraction. Welcome to use it!
 - `2024.07.01` 🎉🎉🎉 We released `PDF-Extract-Kit`, a comprehensive toolkit for high-quality PDF content extraction, including `Layout Detection`, `Formula Detection`, `Formula Recognition`, and `OCR`.
@@ -60,7 +61,7 @@ Many current open-source SOTA models are trained and evaluated on academic datas
 ### Layout Detection
 
 We trained robust `Layout Detection` models using diverse PDF document annotations. Our fine-tuned models achieve accurate extraction results on diverse PDF documents such as papers, textbooks, research reports, and financial reports, and demonstrate high robustness to challenges like blurring and watermarks. The visualization example below shows the inference results of the fine-tuned LayoutLMv3 model.
-
+ 
 ![](assets/readme/layout_example.png)
 
 ### Formula Detection
@@ -101,7 +102,7 @@ Please refer to the [Model Weights Download Tutorial](https://pdf-extract-kit.re
 ```bash 
 python scripts/layout_detection.py --config=configs/layout_detection.yaml
 ```
-You can view the layout detection results in the `outputs/layout_detection` folder.
+Layout detection models support **DocLayout-YOLO** (default model), YOLO-v10, and LayoutLMv3. For YOLO-v10 and LayoutLMv3, please refer to [Layout Detection Algorithm](https://pdf-extract-kit.readthedocs.io/en/latest/algorithm/layout_detection.html). You can view the layout detection results in the `outputs/layout_detection` folder.
 
 #### Formula Detection Model
 
@@ -148,8 +149,9 @@ Since this project uses YOLO code and PyMuPDF for file processing, these compone
    - [LayoutLMv3](https://github.com/microsoft/unilm/tree/master/layoutlmv3): Layout detection model
    - [UniMERNet](https://github.com/opendatalab/UniMERNet): Formula recognition model
    - [StructEqTable](https://github.com/UniModal4Reasoning/StructEqTable-Deploy): Table recognition model
-   - [YOLOv8](https://github.com/ultralytics/ultralytics): Formula detection model
+   - [YOLO](https://github.com/ultralytics/ultralytics): Formula detection model
    - [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR): OCR model
+   - [DocLayout-YOLO](https://github.com/opendatalab/DocLayout-YOLO): Layout detection model
 
 ## Citation
 If you find our models / code / papers useful in your research, please consider giving ⭐ and citations 📝, thx :)  
@@ -161,6 +163,16 @@ If you find our models / code / papers useful in your research, please consider 
   year={2024}
 }
 
+@misc{zhao2024doclayoutyoloenhancingdocumentlayout,
+      title={DocLayout-YOLO: Enhancing Document Layout Analysis through Diverse Synthetic Data and Global-to-Local Adaptive Perception}, 
+      author={Zhiyuan Zhao and Hengrui Kang and Bin Wang and Conghui He},
+      year={2024},
+      eprint={2410.12628},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2410.12628}, 
+}
+
 @misc{wang2024unimernet,
       title={UniMERNet: A Universal Network for Real-World Mathematical Expression Recognition}, 
       author={Bin Wang and Zhuangcheng Gu and Chao Xu and Bo Zhang and Botian Shi and Conghui He},
@@ -169,6 +181,7 @@ If you find our models / code / papers useful in your research, please consider 
       archivePrefix={arXiv},
       primaryClass={cs.CV}
 }
+
 @article{he2024opendatalab,
   title={Opendatalab: Empowering general artificial intelligence with open datasets},
   author={He, Conghui and Li, Wei and Jin, Zhenjiang and Xu, Chao and Wang, Bin and Lin, Dahua},
